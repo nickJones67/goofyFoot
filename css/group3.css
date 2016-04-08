@@ -1,0 +1,37 @@
+a:hover {
+    color: red !important;
+}
+
+p {
+    font-family: "Courier New", serif;
+    font-weight: bold;
+    color : black;
+}
+
+body {
+    background-image: url("images/IMG_4744_1.JPG");
+    margin: 5px;
+}
+
+hr {
+    background-color: DarkBlue;
+    height: 2px;
+}
+
+a:visited {
+    color: blue;
+}
+.headers {
+    width: 100%;
+    text-align: center;
+}
+
+.div_bold {
+    font-weight: bold;
+}
+
+.div_center {
+    width: 100%;
+    text-align: center;
+}
+
