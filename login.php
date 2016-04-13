@@ -13,26 +13,26 @@ session_start();
 
    function login()
    {
+      global $mysqli_connection;
       $login = false;
       $email = $_POST["username"];
       $pWord = $_POST["password"];
       $row = array();
-      if ($query = $mysqli_connection->prepare("SELECT hashed_password FROM user WHERE email=?")){
+      if ($query = $mysqli_connection->prepare("SELECT first_name,hashed_password FROM user WHERE email=?")){
          $query->bind_param("s", $email);
          $query->execute();
-         $query->bind_result($row[0]);
+         $query->bind_result($row[0], $row[1]);
 
-         if ($email === $row[0]){
-
+         if ($pWord === $row[1]){
+            $login = true;
+         }else{
+             
          }
 
-      }
-
-
-
-      if ($login) {
-         $_SESSION["user"] = $uName;
-         header("Location:portfolio.php");
+          if ($login) {
+              $_SESSION["user"] = $row[0];
+              header("Location:portfolio.php");
+          }
       }
    }
 
