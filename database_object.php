@@ -189,6 +189,12 @@
 			return (mysqli_affected_rows($mysqli_connection) == 1) ? true : false;
 		}
 		
+		
+		//the to_string method of all of these objects
+		public function __toString() {
+			return $this->{static::primary_key_field()};
+		}
+		
 	} // end class
 	
 ?>
