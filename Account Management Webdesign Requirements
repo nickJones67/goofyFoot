@@ -2,7 +2,7 @@ Login page:
 
 <script type="text/javascript" src="js/account.js"></script>
 <form id="formLogin" action="login.php" method="post">
-<input type="text" id="username" name="username" placeholder="Username"/>
+<input type="text" id="email" name="email" placeholder="E-mail"/>
 <input type="text" id="password" name="password" placeholder="Password"/>
 <input type="submit" id="btn_submit" name="btn_submit" onclick="checkLogin()" value="Submit">
 </form>
@@ -11,9 +11,13 @@ Account Management Page:
 
 <script type="text/javascript" src="js/account.js"></script>
 <form id="formManagement" action="account.php" method="post">
+<input type="text" id="email" name="email" placeholder="E-mail"/>
 <input type="text" id="username" name="username" placeholder="Username"/>
 <input type="text" id="password" name="password" placeholder="Password"/>
-<input type="submit" id="btn_update" name="btn_update" onclick="checkAccount()" value="Update">
-<input type="submit" id="btn_delete" name="btn_delete" onclick="checkAccount()" value="Delete">
+<input type="text" id="fName" name="fName" placeholder="First Name"/>
+<input type="text" id="lName" name="lName" placeholder="Last Name"/>
+<input type="submit" id="btn_create" name="btn_create" onclick="checkAccount('Create')" value="Create">
+<input type="submit" id="btn_update" name="btn_update" onclick="checkAccount('Update')" value="Update">
+<input type="submit" id="btn_delete" name="btn_delete" onclick="checkAccount('Delete')" value="Delete">
 
 </form>

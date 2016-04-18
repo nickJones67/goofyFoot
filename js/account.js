@@ -15,6 +15,28 @@
          document.getElementById("formLogin").submit();
          
      }
+ }
+
+ function checkAccount(action){
+     $action = $_POST["action"];
+     $role = $_POST["role"];
+     $email = $_POST["email"];
+     $uName = $_POST["username"];
+     $pWord = $_POST["password"];
+     $fName = $_POST["fName"];
+     $lName = $_POST["fName"];
+
+     switch (action){
+         case "Create":
+             createAccount();
+             break;
+         case "Update":
+             updateAccount();
+             break;
+         case "Delete":
+             deleteAccount();
+             break;
+     }
      
 
  }
