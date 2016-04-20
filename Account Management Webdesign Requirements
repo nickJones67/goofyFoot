@@ -10,12 +10,21 @@ Login page:
 Account Management Page:
 
 <script type="text/javascript" src="js/account.js"></script>
+<input id="error" name="error" hidden />
 <form id="formManagement" action="account.php" method="post">
-<input type="text" id="email" name="email" placeholder="E-mail"/>
-<input type="text" id="username" name="username" placeholder="Username"/>
+if (logged in){
+    <input type="text" id="currentRole" name="currentRole" value=$_SESSION['role'] hidden/>
+    <input type="text" id="currentEmail" name="currentEmail" value=$_SESSION['email'] hidden/>
+    }
+<input type="text" id="email" name="email" placeholder="E-mail (Can't be modified after account creation)"/>
+<input type="text" id="username" name="username" placeholder="Username (Can't be modified after account creation)"/>
+<input type="radio" id="role" name="role" value="Admin">Admin
+<input type="radio" id="role" name="role" value="User" checked>User
 <input type="text" id="password" name="password" placeholder="Password"/>
+<input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"/>
 <input type="text" id="fName" name="fName" placeholder="First Name"/>
 <input type="text" id="lName" name="lName" placeholder="Last Name"/>
+<input type="text" id="action" name="action" hidden/>
 <input type="submit" id="btn_create" name="btn_create" onclick="checkAccount('Create')" value="Create">
 <input type="submit" id="btn_update" name="btn_update" onclick="checkAccount('Update')" value="Update">
 <input type="submit" id="btn_delete" name="btn_delete" onclick="checkAccount('Delete')" value="Delete">

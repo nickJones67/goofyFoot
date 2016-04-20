@@ -43,10 +43,10 @@ function createAccount(){
 }
 
 function updateAccount(){
-    $query = "UPDATE user set role_wk=?, first_name=?, last_name=?, hashed_password=? WHERE email=?";
-    global $mysqli_connection, $role, $pWord, $fName, $lName;
+    $query = "UPDATE user set first_name=?, last_name=?, hashed_password=? WHERE email=?";
+    global $mysqli_connection, $pWord, $fName, $lName;
     if ($query = $mysqli_connection->prepare("$query")) {
-        $query->bind_param("ssss", $role, $fName, $lName, $pWord);
+        $query->bind_param("sss", $fName, $lName, $pWord);
         $query->execute();
     }
 }
