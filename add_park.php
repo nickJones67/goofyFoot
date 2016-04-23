@@ -19,9 +19,58 @@
 		Form Processing
 	*/
 	
-	if (isset($_POST))
+	if (isset($_POST["submit"]))
 	{
+		// flag for improper for submission
+		$flag = false;
 		
+		/* Form Validation */
+		// check that Country is set
+		if ($_POST["country"] == "default")
+		{
+			$_SESSION["message"] = "You must select a country!<br>";
+			$flag = true;
+		}
+		
+		// check that state/province is set
+		if ($_POST["state"] == "default")
+		{
+			$_SESSION["message"] = "You must select a state/province!<br>";
+			$flag = true;
+		}
+		
+		// check that city is set
+		if ($_POST["city"] == "default")
+		{
+			$_SESSION["message"] = "You must select a city!<br>";
+			$flag = true;
+		}
+		
+		// if the form has been properly fill out
+		if ($flag == false)
+		{
+			// create the new park
+			$new_park = new Park();
+			$new_park->status_wk = '1';
+			$new_park->city_wk = $_POST["city"];
+			$new_park->address = $_POST["address"];
+			$new_park->name = $_POST["name"];
+			
+			// if the park successfully saves to the database
+			if ($new_park->create())
+			{
+				$_SESSION["message"] = "The park {$new_park->name} has been successfully added!<br>";
+			}
+			// if the park does not successfully save to the databse
+			else
+			{
+				$_SESSION["message"] = "Unable to add the park {$new_park->name} at this time.<br>";
+			}
+		}
+		
+		// refresh the page
+		header("Location: {$page["file_name"]}");
+		die();
 	}
 	
 	// include header
@@ -32,15 +81,21 @@
     <!-- Main Content -->
 	<h1>Add a Park</h1>
 	
+	<!-- Error messages -->
+	<?php
+		if (isset($_SESSION["message"]))
+			echo "<p id=\"message\">".$_SESSION["message"]."</p>";
+	?>
+	
 	
 	<!-- Form to add a park -->
 	<form action="<?php echo $page["file_name"]; ?>" method="post">
 	
 		<label>Park Name</label>
-			<input type="text" name="name" value="" /><br />
+			<input type="text" name="name" value="" required/><br />
 			
 		<label>Address</label>
-			<input text="text" name="address" value="" /><br />
+			<input text="text" name="address" value="" required/><br />
 			
 		<label>Country</label>
 			<select id="country" name="country">
@@ -60,6 +115,8 @@
 		<label class="city">City</label>
 			<select id="city" class="city" name="city">
 			</select><br />
+			
+		<input type="submit" value="Add Park!" name="submit" />
 			
 	</form>
 	
@@ -154,6 +211,10 @@
 	</script>
 	
 <?php 
+	
+	// unset the error message
+	if (isset($_SESSION["message"]))
+		unset($_SESSION["message"]);
 	
 	// include footer
 	require_once "footer.php"; 

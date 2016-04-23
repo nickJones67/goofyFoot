@@ -25,5 +25,8 @@
 	require_once "db_classes/state.php";
 	require_once "db_classes/status.php";
 	require_once "db_classes/user.php";
-
+	
+	// start the session
+	session_start();
+	
 ?>

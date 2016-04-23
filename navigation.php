@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Skate View</a>
+                <a class="navbar-brand" href="index.php">Skate View</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
