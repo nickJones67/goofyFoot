@@ -56,6 +56,35 @@
 			$new_park->address = $_POST["address"];
 			$new_park->name = $_POST["name"];
 			
+			//proces the image
+			$default_image = new Image();
+			$default_image->get_form_data($_FILES['file_upload']);
+			
+			//if there is no file, that is fine - we can set to 0 for default
+			if(!(Image::$error_dictionary[$default_image->error] == 'No file.')) {
+				$default_image->check_errors(true);
+				//save the image record to the database
+				if(!$default_image->create()) {
+					$_SESSION["message"] = "There was an issue saving the image: ".mysqli_error($mysqli_connection)."<br>";
+					header("Location: {$page['file_name']}");
+					die();
+				}
+				//get the key, and associate it to the image record
+				$default_image->image_wk = mysqli_insert_id($mysqli_connection);
+				//now we move the file and save
+				$default_image->move_file();
+			
+				//if the image changed, set it
+				if($default_image) 
+				{
+					$new_park->image_wk = $default_image->image_wk;
+				}
+			} 
+			else
+			{
+				$new_park->image_wk = 0;
+			}
+			
 			// if the park successfully saves to the database
 			if ($new_park->create())
 			{
@@ -89,10 +118,13 @@
 	
 	
 	<!-- Form to add a park -->
-	<form action="<?php echo $page["file_name"]; ?>" method="post">
+	<form action="<?php echo $page["file_name"]; ?>" enctype="multipart/form-data" method="post">
 	
 		<label>Park Name</label>
 			<input type="text" name="name" value="" required/><br />
+			
+		<label>Image</label>
+			<input type="file" name="file_upload" /><br />
 			
 		<label>Address</label>
 			<input text="text" name="address" value="" required/><br />

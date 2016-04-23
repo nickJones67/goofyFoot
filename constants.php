@@ -4,17 +4,20 @@
 		All of the constants
 	*/
 
-	/* UNF server
+	/* UNF server */
 	define ("DB_HOST", "localhost");
 	define ("DB_USER", "group3");
 	define ("DB_PASSWORD", "nachoTime12");
 	define ("DB_DB", "group3");
-	*/
 	
-	/* local server */
+	
+	/* local server 
 	define ("DB_HOST", "localhost");
 	define ("DB_USER", "root");
 	define ("DB_PASSWORD", "microwave");
 	define ("DB_DB", "skate_park");
+	
+	define("BASE",$_SERVER['DOCUMENT_ROOT']."/group3/");
+	*/
 	
 ?>
