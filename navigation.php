@@ -16,7 +16,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="index.php">Home</a>
+                        <a href="index.html">Home</a>
                     </li>
                     <li>
                         <a href="add_park.php">New Park</a>
@@ -25,7 +25,7 @@
                         <a href="search_parks.php">Parks Nearby</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <a href="about.php">About</a>
                     </li>
                 </ul>
             </div>
