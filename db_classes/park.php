@@ -52,7 +52,7 @@
 									<td><img src=\"";
 				if($is_folder) 		$return .= 	"../";
 				$return .= 			"uploads/".$value->image_wk->file_name."\" style=\"width:75px;height:75px;\" ></td>
-									<td><a href=\"".ROOT_URL."view_park.php?park_wk=".$value->park_wk."\">".$value->name."</a></td>
+									<td><a href=\"view_park.php?park_wk=".$value->park_wk."\">".$value->name."</a></td>
 									<td>".$value->city_wk->name."</td>		
 									<td>".$value->city_wk->state_wk->name."</td>
 									<td>".$value->city_wk->state_wk->country_wk->name."</td>
