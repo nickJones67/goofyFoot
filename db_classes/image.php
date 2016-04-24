@@ -83,7 +83,6 @@
 			// this ensures image uniqueness and no overrides
 			$this->file_name = $this->image_wk."_".basename($this->file_name);
 			
-
 			if(!move_uploaded_file($this->temp_path, BASE."uploads/".$this->file_name)) {
 				// remove the record from the database
 				$this->delete();

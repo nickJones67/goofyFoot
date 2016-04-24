@@ -22,7 +22,7 @@
                         <a href="add_park.php">New Park</a>
                     </li>
                     <li>
-                        <a href="#">Parks Nearby</a>
+                        <a href="search_parks.php">Parks Nearby</a>
                     </li>
                     <li>
                         <a href="#">About</a>
