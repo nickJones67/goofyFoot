@@ -10,12 +10,13 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="index.php">Skate View</a>
+				<?php if (isset($_SESSION['user_name'])) echo "<span style=\"color:lightblue;\">".$_SESSION['user_name']."</span>"; ?>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
+					<li>
                         <a href="index.php">Home</a>
                     </li>
                     <li>
@@ -27,6 +28,28 @@
                     <li>
                         <a href="about.php">About</a>
                     </li>
+					<?php
+					/*
+						If the user is logged in, link to the logout page
+						If not logged in, link to the login page
+					*/
+					if (isset($_SESSION['user_wk'])) // logged in
+					{
+						echo "
+						<li>
+							<a href=\"user_logout.php\">Logout</a>
+						</li>
+						";
+					}
+					else // not logged in
+					{
+						echo "
+						<li>
+							<a href=\"user_login.php\">Login</a>
+						</li>
+						";
+					}
+					?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

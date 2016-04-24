@@ -46,7 +46,10 @@
 ?>
 	
 	<!-- Park name -->
-	<h3><?php echo $park->name; ?></h3>
+	<h2><?php echo $park->name; ?></h2>
+	
+	<!-- Error message -->
+	<p id="message"><?php echo $_SESSION['message']; ?></p>
 	
 	<!-- Picture of the park -->
 	<p><img src="uploads/<?php echo $park->image_wk->file_name; ?>"><br /></p>
@@ -63,6 +66,9 @@
 	<!-- Comments -->
 	
 <?php
+
+	// reset error messages
+	$_SESSION['message'] = "";
 
 	// include the footer
 	require_once "footer.php";

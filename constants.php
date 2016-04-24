@@ -4,7 +4,7 @@
 		All of the constants
 	*/
 
-	/* UNF server */
+	/* UNF server */ 
 	define ("DB_HOST", "localhost");
 	define ("DB_USER", "group3");
 	define ("DB_PASSWORD", "nachoTime12");

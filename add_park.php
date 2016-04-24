@@ -110,11 +110,8 @@
     <!-- Main Content -->
 	<h1>Add a Park</h1>
 	
-	<!-- Error messages -->
-	<?php
-		if (isset($_SESSION["message"]))
-			echo "<p id=\"message\">".$_SESSION["message"]."</p>";
-	?>
+	<!-- Error message -->
+	<p id="message"><?php echo $_SESSION['message']; ?></p>
 	
 	
 	<!-- Form to add a park -->
@@ -244,9 +241,8 @@
 	
 <?php 
 	
-	// unset the error message
-	if (isset($_SESSION["message"]))
-		unset($_SESSION["message"]);
+	// reset error messages
+	$_SESSION['message'] = "";
 	
 	// include footer
 	require_once "footer.php"; 

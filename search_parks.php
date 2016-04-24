@@ -21,14 +21,21 @@
 	
 	$body = display_park_table($sql);
 	
+	
 	// include header
 	require_once "header.php";
 
-
+	
+	echo "<!-- Error message -->";
+	echo "<p id=\"message\">".$_SESSION['message']."</p>";
+	
 	// display the table
 	echo $body;
 	
-
+	
+	// reset error messages
+	$_SESSION['message'] = "";
+	
 	// include footer
 	require_once "footer.php";
 

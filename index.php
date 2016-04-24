@@ -14,6 +14,10 @@
 	
 ?>
 
+	<!-- Error message -->
+	<p id="message"><?php echo $_SESSION['message']; ?></p>
+
+	
     <!-- Main Content -->
     <div class="container">
         <div class="row">
@@ -47,6 +51,9 @@
     </div>
 
 <?php 
+	
+	// reset error messages
+	$_SESSION['message'] = "";
 	
 	// include footer
 	require_once "footer.php"; 

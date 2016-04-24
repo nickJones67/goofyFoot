@@ -20,6 +20,9 @@
     <link href="css/about-custom.css" rel="stylesheet">
 	</head>
 	
+	<!-- Error message -->
+	<p id="message"><?php echo $_SESSION['message']; ?></p>
+	
     <!-- Main Content -->
 	<div class="content">
 				<section id="about-section-1">
@@ -178,6 +181,9 @@
 	</div>
 
 <?php 
+	
+	// reset error messages
+	$_SESSION['message'] = "";
 	
 	// include footer
 	require_once "footer.php"; 
