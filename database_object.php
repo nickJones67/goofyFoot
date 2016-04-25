@@ -111,6 +111,21 @@
 		}
 		
 		
+		protected function sanitized_attributes() 
+		{
+			global $mysqli_connection;
+			$clean_attributes = array();
+			// sanitize the values before submitting
+			// Note: does not alter the actual value of each attribute
+			foreach ($this->attributes() as $key => $value)
+			{
+				$clean_attributes[$key] = mysqli_real_escape_string($mysqli_connection, $value);
+			}
+			
+			return $clean_attributes;
+		}
+		
+		
 		protected function attributes() 
 		{ 
 			// Get the mysql connection
@@ -140,7 +155,7 @@
 		{
 			global $mysqli_connection;
 			
-			$attributes = $this->attributes();
+			$attributes = $this->sanitized_attributes();
 		
 			$sql = "INSERT INTO `".static::$table_name."` (";
 			$sql .= join(", ", array_keys($attributes));
@@ -157,9 +172,21 @@
 		{
 			global $mysqli_connection;
 			
-			$sql = "DELETE FROM `".static::$table_name."`";
-			$sql .= " WHERE `".static::primary_key_field()."`=". $this->{static::primary_key_field()};
-			$sql .= " LIMIT 1;";
+			//if the item contains an is_deleted field
+			if (in_array("is_deleted", static::$db_fields)) {
+				//cleanse the attributes
+				$attributes = $this->sanitized_attributes();				
+				
+				//if we're here, then the table does contain and is_deleted field
+				//so we simply need to update the is_deleted flag
+				$sql = "UPDATE `".static::$table_name."` SET `is_deleted` = 1";
+			}
+			else
+			{
+				$sql = "DELETE FROM `".static::$table_name."`";
+				$sql .= " WHERE `".static::primary_key_field()."`=". $this->{static::primary_key_field()};
+				$sql .= " LIMIT 1;";
+			}
 			mysqli_query($mysqli_connection, $sql);
 			
 			return (mysqli_affected_rows($mysqli_connection) == 1) ? true : false;
@@ -171,7 +198,7 @@
 			//updates status to database
 			global $mysqli_connection;
 			
-			$attributes = $this->attributes();
+			$attributes = $this->sanitized_attributes();
 			
 			//form everything into a string
 			$attribute_pairs = array();
