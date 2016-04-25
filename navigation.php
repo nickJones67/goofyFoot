@@ -30,11 +30,18 @@
                     </li>
 					<?php
 					/*
-						If the user is logged in, link to the logout page
-						If not logged in, link to the login page
+						If the user is logged in, link to the logout page.
+						If not logged in, link to the login page.
+						Also show the extra admin pages
 					*/
 					if (isset($_SESSION['user_wk'])) // logged in
-					{
+					{	
+						echo "
+						<li>
+							<a href=\"add_park.php\">Add a Park</a>
+						</li>
+						";
+						
 						echo "
 						<li>
 							<a href=\"user_logout.php\">Logout</a>

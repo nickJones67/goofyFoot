@@ -16,8 +16,24 @@
 		public $address;
 		public $name;
 		public $is_deleted;
-	}
+		
+		public $comment;
+	
 
+		// get all park comments
+		function get_my_comments() {
+			global $mysqli_connection;
+			
+			$sql  = "SELECT `c`.* FROM `park` AS `p` ";
+			$sql .= "INNER JOIN `comment` AS `c` ON `c`.park_wk = `p`.park_wk ";
+			$sql .= "WHERE `p`.park_wk = ".$this->park_wk." AND `c`.`is_flagged` = 0";
+
+			//get the resultset
+			$this->comment = Comment::find_by_sql($sql);
+		}
+	
+	}
+	
 	
 	//function to display the pet table based on results
 	function display_park_table($sql, $is_folder = false) {

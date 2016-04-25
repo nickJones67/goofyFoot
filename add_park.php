@@ -10,6 +10,14 @@
 	$page["is_user_only"] = true;
 	$page["is_admin_only"] = true;
 	
+	// page security
+	if (!isset($_SESSION['user_wk']))
+	{
+		$_SESSION['message'] = "You must be logged in to view that page";
+		header("Location: user_login.php");
+		die();
+	}
+	
 	
 	// Pre-load data for country, state, and city
 	$countries = Country::find_by_sql("SELECT * FROM `country`;");
