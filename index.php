@@ -31,7 +31,7 @@
                           Example Description
                         </h3>
                     </a>
-                    <p class="post-meta">Posted by.. <a href="#">John Doe</a> on September 24, 2014</p>
+                    <p class="post-meta">Posted by <a href="#">John Doe</a> on September 24, 2014</p>
                 </div>
                 <hr>
 
