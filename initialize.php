@@ -29,4 +29,8 @@
 	// start the session
 	session_start();
 	
+	// make sure the error message is set
+	if (!isset($_SESSION['message']))
+		$_SESSION['message'] = "";
+	
 ?>
