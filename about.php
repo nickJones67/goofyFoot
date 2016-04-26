@@ -28,8 +28,8 @@
 				<section id="about-section-1">
 					<br>
 					<h1>About Skate View</h1>
-					<h3 class="dropcase2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci. Donec blandit sit amet tortor ut dapibus. Nulla tincidunt augue sed vestibulum vulputate. Nam aliquet volutpat ante sed consectetur. Duis convallis dui id bibendum tincidunt. Sed nec sem mauris. Praesent gravida in orci ac sodales. Nam volutpat imperdiet magna, viverra hendrerit velit. Nam porttitor varius eleifend. </h3>
-					<h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci.</h3>
+					<h3 class="dropcase2">Skate View is a skate park review website where users can find, post, review and comment on skate parks in their local area. We are a community-centric non-profit organization dedicated to bringing skateboarding enthusiasts together. </h3>
+					<h3><a href=\"create_new_user.php\">Join Skate View </a> today to immediately begin receiving email notifications when parks or reviews are added in your local area!</h3>
 					<br><br><br><br>
 				</section>				
 				
@@ -79,14 +79,14 @@
 				<section id="about-section-3">
 					<br>
 					<h1>Our Founding</h1>
-					<p class="dropcase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci. Donec blandit sit amet tortor ut dapibus. Nulla tincidunt augue sed vestibulum vulputate. Nam aliquet volutpat ante sed consectetur. Duis convallis dui id bibendum tincidunt. Sed nec sem mauris. Praesent gravida in orci ac sodales. Nam volutpat imperdiet magna, viverra hendrerit velit. Nam porttitor varius eleifend. </p>
+					<p class="dropcase">Skate View was founded by a team of five UNF computer science students with a shared passion for skateboarding and web development. Many skaters face a common obstacle; they don't know where they can skate. To solve this problem we set out to create a skate park review website that simplified the process of finding skate parks in your local area - Skate View. </p>
 					<br><br>
 				</section>
 				
 				<section id="about-section-4">
 					<br>
 					<h1>Mission Statement</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci. Donec blandit sit amet tortor ut dapibus. Nulla tincidunt augue sed vestibulum vulputate. Nam aliquet volutpat ante sed consectetur. Duis convallis dui id bibendum tincidunt. Sed nec sem mauris. Praesent gravida in orci ac sodales. Nam volutpat imperdiet magna, viverra hendrerit velit. Nam porttitor varius eleifend. </p>
+					<p>Bringing the best spots to you - with a friendly blog-like interface and social media integration. </p>
 					<br><br>
 				</section>
 				
@@ -94,7 +94,7 @@
 					<div class="about-background-1">
 						<br>
 						<h1>Reasons to Choose Us?</h1>
-						<p class="dropcase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget nisi eu lectus pretium pretium a in orci. Donec blandit sit amet tortor ut dapibus. Nulla tincidunt augue sed vestibulum vulputate. Nam aliquet volutpat ante sed consectetur. Duis convallis dui id bibendum tincidunt. Sed nec sem mauris. Praesent gravida in orci ac sodales. Nam volutpat imperdiet magna, viverra hendrerit velit. Nam porttitor varius eleifend. </p>
+						<p class="dropcase">Skate View is the only place where skaters can share local skate parks and review them for the convenience of others. Additionally Skate View is easy to use and provides park information in an easy to understand format. We have a small but rapidly growing community of avid enthusiasts and casual skaters alike. </p>
 						<br><br>
 					</div>
 				</section>
