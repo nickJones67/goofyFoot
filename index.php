@@ -22,7 +22,7 @@
 	<?php
 		// get the client's location
 		$user_ip = $_SERVER['REMOTE_ADDR'];
-		if (file_exists ("http://ipinfo.io/".$user_ip."/json")) {
+		//if (file_exists ("http://ipinfo.io/".$user_ip."/json")) {
 			$request = file_get_contents("http://ipinfo.io/".$user_ip."/json");
 			$geo = json_decode($request);
 			
@@ -33,24 +33,27 @@
 			$sql .= "INNER JOIN `state` AS `st` ON `st`.`state_wk` = `c`.`state_wk` ";
 			$sql .= "INNER JOIN `country` AS `cn` ON `cn`.`country_wk` = `st`.`country_wk` ";
 			$sql .= "WHERE `p`.`is_deleted` = 0 ";
-			$sql .= ( $geo->city != NULL ? "AND `c`.`name` = '{$geo->city}' " : " " );
-			$sql .= ( $geo->region != NULL ? "AND `st`.`name` = '{$geo->region}' " : " " );
+			$sql .= ( isset($geo->city) && $geo->city != NULL ? "AND `c`.`name` = '{$geo->city}' " : " " );
+			$sql .= ( isset($geo->region) && $geo->region != NULL ? "AND `st`.`name` = '{$geo->region}' " : " " );
 			$sql .= "LIMIT 4";
 			$sql .= ";";
 			
 			$nearby_parks = display_park_table($sql);
 			
-			echo "
-			<div class=\"container\">
-				<div class=\"row\">
-					<div class=\"col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1\">
-						<h2>Parks near you...</h2>
-						".$nearby_parks."
+			if ( (isset($geo->city) || isset($geo->region)) && $nearby_parks != "<p><em>Your search returned 0 park(s).</em></p>")
+			{
+				echo "
+				<div class=\"container\">
+					<div class=\"row\">
+						<div class=\"col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1\">
+							<h2>Parks near you...</h2>
+							".$nearby_parks."
+						</div>
 					</div>
 				</div>
-			</div>
-			";
-		}
+				";
+			}
+		//}
 	?>
 	
 	

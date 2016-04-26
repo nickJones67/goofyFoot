@@ -13,7 +13,7 @@
 	
 	// get the user's current location
 	$user_ip = $_SERVER['REMOTE_ADDR'];
-	if (file_exists ("http://ipinfo.io/".$user_ip."/json")) {
+	//if (file_exists ("http://ipinfo.io/".$user_ip."/json")) {
 		$request = file_get_contents("http://ipinfo.io/".$user_ip."/json");
 		$geo = json_decode($request);
 		
@@ -24,13 +24,13 @@
 		$sql .= "INNER JOIN `state` AS `st` ON `st`.`state_wk` = `c`.`state_wk` ";
 		$sql .= "INNER JOIN `country` AS `cn` ON `cn`.`country_wk` = `st`.`country_wk` ";
 		$sql .= "WHERE `p`.`is_deleted` = 0 ";
-		$sql .= ( $geo->city != NULL ? "AND `c`.`name` = '{$geo->city}' " : " " );
-		$sql .= ( $geo->region != NULL ? "AND `st`.`name` = '{$geo->region}' " : " " );
+		$sql .= ( isset($geo->city) && $geo->city != NULL ? "AND `c`.`name` = '{$geo->city}' " : " " );
+		$sql .= ( isset($geo->region) && $geo->region != NULL ? "AND `st`.`name` = '{$geo->region}' " : " " );
 		$sql .= "LIMIT 4";
 		$sql .= ";";
 		
 		$nearby_parks = display_park_table($sql);
-	}
+	//}
 	
 	// grab the set of all parks to display
 	$sql = "SELECT `p`.* FROM `park` AS `p` ";
@@ -54,11 +54,12 @@
 	/*
 		display the tables
 	*/
-	if (isset($nearby_parks) && !$nearby_parks == "<p><em>Your search returned 0 park(s).</em></p>")
+
+	if ( (isset($geo->city) || isset($geo->region)) && $nearby_parks != "<p><em>Your search returned 0 park(s).</em></p>")
 	{
 		echo "<h2>Closest to you...</h2>";
 		echo $nearby_parks;
-		echo "<hr />";
+		echo "<br /><hr /><br />";
 	}
 	
 	echo "<h2>All Parks</h2>";
