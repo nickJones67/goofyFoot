@@ -40,10 +40,16 @@
 					<p id="message"><?php echo $_SESSION['message']; ?></p>
 					
 					<!-- Login form -->
-					<form action="<?php echo $page['file_name']; ?>" method="post">
-						<input type="text" name="username" placeholder="Username" tabindex=1/><br />
-						<input type="password" name="password" placeholder="Password" tabindex=2/><br />
-						<input type="submit" value="Login" name="submit" tabindex=3/>
+					<form role="form" action="<?php echo $page['file_name']; ?>" method="post">
+						<div class="form-group">
+							<input type="text" name="username" placeholder="Username" tabindex=1/><br />
+						</div>	
+						<div class="form-group">	
+							<input type="password" name="password" placeholder="Password" tabindex=2/><br />
+						</div>	
+						<div class="form-group">	
+							<input type="submit" value="Login" name="submit" tabindex=3/>
+						</div>
 					</form>
 					
 					<!-- Create new user -->

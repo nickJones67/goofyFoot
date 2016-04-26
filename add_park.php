@@ -126,38 +126,44 @@
 				
 				
 				<!-- Form to add a park -->
-				<form action="<?php echo $page["file_name"]; ?>" enctype="multipart/form-data" method="post">
-				
-					<label>Park Name</label>
-						<input type="text" name="name" value="" required/><br />
-						
-					<label>Image</label>
-						<input type="file" name="file_upload" /><br />
-						
-					<label>Address</label>
-						<input text="text" name="address" value="" required/><br />
-						
-					<label>Country</label>
-						<select id="country" name="country">
-							<option value="default" selected>Select a Country</option>
-							<?php
-							foreach ($countries as $country)
-							{
-								echo "<option value=\"".$country->country_wk."\">".$country->name."</option>";
-							}
-							?>
-						</select><br />
-						
-					<label class="state">State/Province</label>
-						<select id="state" class="state" name="state">
-						</select><br />
-						
-					<label class="city">City</label>
-						<select id="city" class="city" name="city">
-						</select><br />
-						
-					<input type="submit" value="Add Park!" name="submit" />
-						
+				<form role="form" action="<?php echo $page["file_name"]; ?>" enctype="multipart/form-data" method="post">
+					<div class="form-group">
+						<label>Park Name</label>
+							<input type="text" name="name" value="" required/><br />
+					</div>
+					<div class="form-group">	
+						<label>Image</label>
+							<input type="file" name="file_upload" /><br />
+					</div>
+					<div class="form-group">	
+						<label>Address</label>
+							<input text="text" name="address" value="" required/><br />
+					</div>
+					<div class="form-group">
+						<label>Country</label>
+							<select id="country" name="country">
+								<option value="default" selected>Select a Country</option>
+								<?php
+								foreach ($countries as $country)
+								{
+									echo "<option value=\"".$country->country_wk."\">".$country->name."</option>";
+								}
+								?>
+							</select><br />
+					</div>
+					<div class="form-group">
+						<label class="state">State/Province</label>
+							<select id="state" class="state" name="state">
+							</select><br />
+					</div>
+					<div class="form-group">
+						<label class="city">City</label>
+							<select id="city" class="city" name="city">
+							</select><br />
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Add Park!" name="submit" />
+					</div>
 				</form>
 			</div>
 		</div>
