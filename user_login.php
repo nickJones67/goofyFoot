@@ -31,21 +31,27 @@
 	
 ?>
 
-	<h2>Login</h2>
+	<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+					<h2>Login</h2>
 	
-	<!-- Error message -->
-	<p id="message"><?php echo $_SESSION['message']; ?></p>
+					<!-- Error message -->
+					<p id="message"><?php echo $_SESSION['message']; ?></p>
+					
+					<!-- Login form -->
+					<form action="<?php echo $page['file_name']; ?>" method="post">
+						<input type="text" name="username" placeholder="Username" tabindex=1/><br />
+						<input type="password" name="password" placeholder="Password" tabindex=2/><br />
+						<input type="submit" value="Login" name="submit" tabindex=3/>
+					</form>
+					
+					<!-- Create new user -->
+					<p>No account? <a href="create_new_user.php">Create a new account!</a></p>
+			</div>
+		</div>
+	</div>
 	
-	<!-- Login form -->
-	<form action="<?php echo $page['file_name']; ?>" method="post">
-		<input type="text" name="username" placeholder="Username" /><br />
-		<input type="password" name="password" placeholder="Password" /><br />
-		<input type="submit" value="Login" name="submit" />
-	</form>
-	
-	<!-- Create new user -->
-	<p>No account? <a href="create_new_user.php">Create a new account!</a></p>
-
 <?php
 
 	// reset error messages

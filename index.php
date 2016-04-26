@@ -15,7 +15,13 @@
 ?>
 
 	<!-- Error message -->
-	<p id="message"><?php echo $_SESSION['message']; ?></p>
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<p id="message"><?php echo $_SESSION['message']; ?></p>
+			</div>
+		</div>
+	</div>
 
 	
 	<!-- Display nearby parks -->

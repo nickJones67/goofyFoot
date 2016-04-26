@@ -54,16 +54,35 @@
 	/*
 		display the tables
 	*/
-
+	
+	// nearby parks
 	if ( (isset($geo->city) || isset($geo->region)) && $nearby_parks != "<p><em>Your search returned 0 park(s).</em></p>")
 	{
-		echo "<h2>Closest to you...</h2>";
-		echo $nearby_parks;
-		echo "<br /><hr /><br />";
+		echo "
+			<div class=\"container\">
+				<div class=\"row\">
+					<div class=\"col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1\">
+						<h2>Closest to you...</h2>
+						".$nearby_parks."
+					</div>
+				</div>
+			</div>
+			
+			<hr />
+		";
 	}
 	
-	echo "<h2>All Parks</h2>";
-	echo $body;
+	// all parks
+	echo "
+		<div class=\"container\">
+			<div class=\"row\">
+				<div class=\"col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1\">
+					<h2>All Parks</h2>
+					".$body."
+				</div>
+			</div>
+		</div>
+	";
 	
 	
 	// reset error messages

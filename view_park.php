@@ -128,27 +128,36 @@
 	
 ?>
 	
-	<!-- Park name -->
-	<h2><?php echo $park->name; ?></h2>
-	
-	<!-- Error message -->
-	<p id="message"><?php echo $_SESSION['message']; ?></p>
-	
-	<!-- Picture of the park -->
-	<p><img src="uploads/<?php echo $park->image_wk->file_name; ?>"><br /></p>
-	
-	<!-- Park info -->
-	<label>Status: </label><?php echo ucwords($park->status_wk->name); ?><br />
-	<label>Address: </label><?php echo $park->address; ?><br />
-	<label>Country: </label><?php echo $park->city_wk->state_wk->country_wk->name; ?><br />
-	<label>State/Province: </label><?php echo $park->city_wk->state_wk->name; ?><br />
-	<label>City: </label><?php echo $park->city_wk->name; ?><br />
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<!-- Park name -->
+				<h2><?php echo $park->name; ?></h2>
+				
+				<!-- Error message -->
+				<p id="message"><?php echo $_SESSION['message']; ?></p>
+				
+				<!-- Picture of the park -->
+				<p><img src="uploads/<?php echo $park->image_wk->file_name; ?>"><br /></p>
+				
+				<!-- Park info -->
+				<label>Status: </label><?php echo ucwords($park->status_wk->name); ?><br />
+				<label>Address: </label><?php echo $park->address; ?><br />
+				<label>Country: </label><?php echo $park->city_wk->state_wk->country_wk->name; ?><br />
+				<label>State/Province: </label><?php echo $park->city_wk->state_wk->name; ?><br />
+				<label>City: </label><?php echo $park->city_wk->name; ?><br />
+			</div>
+		</div>
+	</div>
 	
 	
 	<hr />
 	
 	
 	<!-- Comments -->
+	<div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	<?php
 	// display the comments here
 	if (empty($park->comment)) 
@@ -186,6 +195,10 @@
 		</form>";
 	}
 	
+			echo "		</div>
+					</div>
+				</div>
+			";
 
 	// reset error messages
 	$_SESSION['message'] = "";

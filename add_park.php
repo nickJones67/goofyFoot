@@ -115,47 +115,53 @@
 	
 ?>
 
-    <!-- Main Content -->
-	<h1>Add a Park</h1>
+	<!-- Main Content -->
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<h2>Add a Park</h2>
 	
-	<!-- Error message -->
-	<p id="message"><?php echo $_SESSION['message']; ?></p>
-	
-	
-	<!-- Form to add a park -->
-	<form action="<?php echo $page["file_name"]; ?>" enctype="multipart/form-data" method="post">
-	
-		<label>Park Name</label>
-			<input type="text" name="name" value="" required/><br />
-			
-		<label>Image</label>
-			<input type="file" name="file_upload" /><br />
-			
-		<label>Address</label>
-			<input text="text" name="address" value="" required/><br />
-			
-		<label>Country</label>
-			<select id="country" name="country">
-				<option value="default" selected>Select a Country</option>
-				<?php
-				foreach ($countries as $country)
-				{
-					echo "<option value=\"".$country->country_wk."\">".$country->name."</option>";
-				}
-				?>
-			</select><br />
-			
-		<label class="state">State/Province</label>
-			<select id="state" class="state" name="state">
-			</select><br />
-			
-		<label class="city">City</label>
-			<select id="city" class="city" name="city">
-			</select><br />
-			
-		<input type="submit" value="Add Park!" name="submit" />
-			
-	</form>
+				<!-- Error message -->
+				<p id="message"><?php echo $_SESSION['message']; ?></p>
+				
+				
+				<!-- Form to add a park -->
+				<form action="<?php echo $page["file_name"]; ?>" enctype="multipart/form-data" method="post">
+				
+					<label>Park Name</label>
+						<input type="text" name="name" value="" required/><br />
+						
+					<label>Image</label>
+						<input type="file" name="file_upload" /><br />
+						
+					<label>Address</label>
+						<input text="text" name="address" value="" required/><br />
+						
+					<label>Country</label>
+						<select id="country" name="country">
+							<option value="default" selected>Select a Country</option>
+							<?php
+							foreach ($countries as $country)
+							{
+								echo "<option value=\"".$country->country_wk."\">".$country->name."</option>";
+							}
+							?>
+						</select><br />
+						
+					<label class="state">State/Province</label>
+						<select id="state" class="state" name="state">
+						</select><br />
+						
+					<label class="city">City</label>
+						<select id="city" class="city" name="city">
+						</select><br />
+						
+					<input type="submit" value="Add Park!" name="submit" />
+						
+				</form>
+			</div>
+		</div>
+	</div>
 	
 	
 	<!-- jQuery to show/hide form elements -->

@@ -74,22 +74,29 @@
 		
 	?>
 	
-	<h2>Create an Account</h2>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+				<h2>Create an Account</h2>
 	
-	<!-- Error message -->
-	<p id="message"><?php echo $_SESSION['message']; ?></p>
+					<!-- Error message -->
+					<p id="message"><?php echo $_SESSION['message']; ?></p>
+					
+					
+					<!-- create new user form -->
+					<form action="<?php echo $page['file_name']; ?>" method="post">
+						<input type="text" name="user_name" placeholder="Username" tabindex=1 /><br />
+						<input type="text" name="email" placeholder="Email" tabindex=2 /><br />
+						<input type="password" name="password" placeholder="Password" tabindex=3 /><br />
+						<input type="password" name="confirmed_password" placeholder="Confirm Password" tabindex=4 /><br />
+						<input type="text" name="first_name" placeholder="First Name" tabindex=5 /><br />
+						<input type="text" name="last_name" placeholder="Last Name" tabindex=6 /><br />
+						<input type="submit" value="Create" name="submit" tabindex=7 >
+					</form>
 	
-	
-	<!-- create new user form -->
-	<form action="<?php echo $page['file_name']; ?>" method="post">
-		<input type="text" name="user_name" placeholder="Username" /><br />
-		<input type="text" name="email" placeholder="Email" /><br />
-		<input type="password" name="password" placeholder="Password" /><br />
-		<input type="password" name="confirmed_password" placeholder="Confirm Password" /><br />
-		<input type="text" name="first_name" placeholder="First Name" /><br />
-		<input type="text" name="last_name" placeholder="Last Name" /><br />
-		<input type="submit" value="Create" name="submit" >
-	</form>
+				</div>
+			</div>
+		</div>
 	
 <?php
 
